@@ -5,19 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
-</html>
 <body>
+  <form class="createTable">
+    <div class="group">
+        <label for="name">User Name</label>
+        <input type="text" id="name" />
+    </div>
 
-    <table border ="1" id="nameTable">
-        <thead>
-            <tr>
-                <td>Name</td>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-<script src="./main.js">   </script>
+    <div class="group">
+        <label for="Email">User Description</label> 
+        <input type="text" id="Email" /> 
+    </div>
+
+    <div class="group">
+        <label for="Password">User Price</label>  
+        <input type="text" id="Password" />  
+    </div>
+
+    <button type="submit">Create Table</button>
+  </form>
+  <table border="1">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>Description</th>
+            <th>Password</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+  </table>
+   
+  <script src="./main.js"></script>
 </body>
 </html>
