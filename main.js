@@ -1,32 +1,21 @@
-var createTableForm = document.querySelector(".createTable");
-var nameInput = document.querySelector("#name");
-var descriptionInput = document.querySelector("#Email"); 
-var priceInput = document.querySelector("#Password"); 
+async function getPizza() {
+   
+        const response = await fetch(`https://forkify-api.herokuapp.com/api/search?q=pizza`);
+        const data = await response.json();
 
-var users = [];
-createTableForm.onsubmit = function (e) {  
-    e.preventDefault(); 
 
-    var user = {
-        name: nameInput.value,
-        description: descriptionInput.value,
-        price: priceInput.value,
-    };
+        const result = data.recipes.map(function (ele) {
+            return `
+            <div class='ele'>
+                <h2>${ele.title}</h2>
+                <img src="${ele.image_url}" alt="${ele.title}">
+            </div>
+            `;
+        })
 
-    users.push(user);
+        document.querySelector(".user").innerHTML = result;
 
-    console.log(users);
-    PrintData();
-};
-function PrintData(){
-    var data = ``;
-    for (var i = 0; i < users.length; i++) {
-        data += `<tr>
-        <th>${users[i].name}</th>
-        <th>${users[i].description}</th>
-        <th>${users[i].price}</th>
-        </tr>
-        `;
-    }
-    document.querySelector("tbody").innerHTML=data;
+   
 }
+
+getPizza();
